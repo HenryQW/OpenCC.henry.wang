@@ -1,0 +1,12 @@
+{
+  "name": "opencc.henry.wang",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "express": "~4.16.0",
+    "opencc": "^1.0.5"
+  }
+}
