@@ -20,7 +20,7 @@ const reconvert = str =>
       )
     );
 
-async function convert(req, res) {
+const convert = async (req, res) => {
   try {
     const opencc = new OpenCC("t2s.json");
 
@@ -39,8 +39,13 @@ async function convert(req, res) {
       content: req.body.content
     });
   }
-}
+};
+
+const redirect = (req, res) => {
+  return res.redirect(301, "https://henry.wang/");
+};
 
 router.post("/", convert);
+router.get("/", redirect);
 
 module.exports = router;
