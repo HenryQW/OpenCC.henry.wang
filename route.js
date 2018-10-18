@@ -24,8 +24,8 @@ const convert = async (req, res) => {
   try {
     const opencc = new OpenCC("t2s.json");
 
-    const title = opencc.convertSync(reconvert(req.body.title));
-    const content = opencc.convertSync(reconvert(req.body.content));
+    const title = opencc.convertSync(reconvert(req.body.title || ""));
+    const content = opencc.convertSync(reconvert(req.body.content || ""));
 
     res.status(200).json({
       title,
