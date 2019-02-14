@@ -6,7 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "express": "~4.16.0",
-    "opencc": "^1.0.5"
+    "express": "4.16.4",
+    "opencc": "1.0.5"
   }
 }

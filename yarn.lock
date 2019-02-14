@@ -93,7 +93,7 @@ etag@~1.8.1:
   resolved "https://registry.yarnpkg.com/etag/-/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"
   integrity sha1-Qa4u62XvpiJorr/qg6x9eSmbCIc=
 
-express@~4.16.0:
+express@4.16.4:
   version "4.16.4"
   resolved "https://registry.yarnpkg.com/express/-/express-4.16.4.tgz#fddef61926109e24c515ea97fd2f1bdbf62df12e"
   integrity sha512-j12Uuyb4FMrd/qQAm6uCHAkPtO8FDTRJZBDd5D2KOL2eLaz1yUNdUB/NOIyq0iU4q4cFarsUCrnFDPBcnksuOg==
@@ -233,7 +233,7 @@ on-finished@~2.3.0:
   dependencies:
     ee-first "1.1.1"
 
-opencc@^1.0.5:
+opencc@1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/opencc/-/opencc-1.0.5.tgz#53a928ac29dc3557a1b1e058d369b423673ab7e5"
   integrity sha1-U6korCncNVehseBY02m0I2c6t+U=
