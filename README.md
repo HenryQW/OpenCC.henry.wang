@@ -16,7 +16,7 @@ git clone https://github.com/HenryQW/OpenCC.henry.wang.git && npm install --prod
 Or spare yourself all the trouble:
 
 ```sh
-docker run -d -p 3000:3000 --restart=always wangqiru/opencc_api_server
+docker run -d -p 3000:3000 --restart=always wangqiru/opencc-api-server
 ```
 
 ## Usage
