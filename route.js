@@ -16,7 +16,7 @@ const reconvert = str =>
     )
     .replace(/(&#)(\d{1,6});/gi, $0 =>
       String.fromCharCode(
-        parseInt(escape($0).replace(/(%26%23)(\d{1,6})(%3B)/g, "$2"))
+        parseInt(escape($0).replace(/(%26%23)(\d{1,6})(%3B)/g, "$2"), 16)
       )
     );
 
