@@ -7,6 +7,6 @@
   },
   "dependencies": {
     "express": "4.17.1",
-    "opencc": "1.0.5"
+    "opencc": "1.0.6"
   }
 }
