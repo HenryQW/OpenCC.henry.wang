@@ -1,47 +1,38 @@
-var express = require("express");
-var router = express.Router();
-var OpenCC = require("opencc");
+const express = require("express");
+const router = express.Router();
+const OpenCC = require("opencc");
 
-const reconvert = str =>
+const SCHEMES = [
+  "s2t",
+  "t2s",
+  "s2tw",
+  "tw2s",
+  "s2hk",
+  "hk2s",
+  "s2twp",
+  "tw2sp",
+  "t2tw",
+  "t2hk",
+];
+
+const reconvert = (str) =>
   str
-    .replace(/(\\u)(\w{1,4})/gi, $0 =>
-      String.fromCharCode(
-        parseInt(escape($0).replace(/(%5Cu)(\w{1,4})/g, "$2"), 16)
-      )
+    .replace(/(\\u)(\w{1,4})/gi, ($0, $1, $2) =>
+      String.fromCharCode(parseInt($2, 16))
     )
-    .replace(/(&#x)(\w{1,4});/gi, $0 =>
-      String.fromCharCode(
-        parseInt(escape($0).replace(/(%26%23x)(\w{1,4})(%3B)/g, "$2"), 16)
-      )
-    )
-    .replace(/(&#)(\d{1,6});/gi, $0 =>
-      String.fromCharCode(
-        parseInt(escape($0).replace(/(%26%23)(\d{1,6})(%3B)/g, "$2"), 16)
-      )
+    .replace(/&#(x)?(\w+);/g, ($, $1, $2) =>
+      String.fromCharCode(parseInt($2, $1 ? 16 : 10))
     );
 
-const convert = async (req, res) => {
-  var schemes = [
-    "s2t",
-    "t2s",
-    "s2tw",
-    "tw2s",
-    "s2hk",
-    "hk2s",
-    "s2twp",
-    "tw2sp",
-    "t2tw",
-    "t2hk"
-  ];
-
-  var type = req.path.substr(1);
+const convert = (req, res) => {
+  let type = req.path.substr(1);
 
   if (type.length === 0) {
     type = "t2s";
-  } else if (!schemes.includes(type)) {
+  } else if (!SCHEMES.includes(type)) {
     return res.status(200).json({
       title: "Error occured",
-      content: "Wrong conversion scheme specified."
+      content: "Wrong conversion scheme specified.",
     });
   }
 
@@ -53,18 +44,18 @@ const convert = async (req, res) => {
 
     return res.status(200).json({
       title,
-      content
+      content,
     });
   } catch (error) {
     return res.status(200).json({
       title: "Error occured",
-      content: error.message
+      content: error.message,
     });
   }
 };
 
 const redirect = (req, res) => {
-  return res.redirect(301, "https://henry.wang/");
+  return res.redirect(301, "https://github.com/HenryQW/OpenCC.henry.wang");
 };
 
 router.post("/*", convert);

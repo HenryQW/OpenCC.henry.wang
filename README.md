@@ -1,6 +1,6 @@
 # OpenCC.henry.wang
 
-Provides backend support for [OpenCC](https://github.com/HenryQW/ttrss_opencc) demo instances, https://opencc.henry.wang and http://opencc2.henry.wang
+Provides backend support for [ttrss_opencc](https://github.com/HenryQW/ttrss_opencc), based on [BYVoid/OpenCC](https://github.com/BYVoid/OpenCC).
 
 ## Quickstart
 
@@ -37,7 +37,7 @@ There are 10 conversion schemes available in OpenCC:
 
 In order to use `t2hk`, the address you post to should be `http://localhost:3000/t2hk`.
 
-Conversion scheme `s2t` will be used if don't specify any.
+Conversion scheme `t2s` will be used if don't specify any.
 
 #### Params
 
@@ -52,7 +52,7 @@ curl --request POST \
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --data 'title=繁體中文（中國大陸、澳門、馬新常稱繁體中文，台灣常稱正體中文或繁體中文）\
           &content=實際上，兩岸三地的繁體中文出版物並不拘泥於本地標準，有時使用其他字形和異體字是很頻繁的。'
-  
+
 **data should be urlencode-ed**
 ```
 
@@ -60,7 +60,7 @@ Result:
 
 ```json
 {
-    "title": "繁体中文（中国大陆、澳门、马新常称繁体中文，台湾常称正体中文或繁体中文）",
-    "content": "实际上，两岸三地的繁体中文出版物并不拘泥于本地标准，有时使用其他字形和异体字是很频繁的。"
+  "title": "繁体中文（中国大陆、澳门、马新常称繁体中文，台湾常称正体中文或繁体中文）",
+  "content": "实际上，两岸三地的繁体中文出版物并不拘泥于本地标准，有时使用其他字形和异体字是很频繁的。"
 }
 ```
