@@ -4,8 +4,8 @@ var router = require("./route");
 
 var app = express();
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.json({ limit: "10mb" }));
+app.use(express.urlencoded({ limit: "10mb", extended: false }));
 
 app.use("/", router);
 
